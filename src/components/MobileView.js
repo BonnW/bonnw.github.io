@@ -94,7 +94,9 @@ export default function MobileView() {
                 handleElement({ text });
               }}
             >
-              <ListItemIcon>{iconSwitch(text)}</ListItemIcon>
+              <ListItemIcon sx={{ color: "white" }}>
+                {iconSwitch(text)}
+              </ListItemIcon>
               <ListItemText
                 primary={text}
                 sx={{ color: "white", textAlign: "center" }}
@@ -103,7 +105,7 @@ export default function MobileView() {
                   fontWeight: "bold",
                 }}
               />
-              <ListItemIcon sx={{ justifyContent: "end" }}>
+              <ListItemIcon sx={{ justifyContent: "end", color: "white" }}>
                 {iconSwitch(text)}
               </ListItemIcon>
             </ListItemButton>

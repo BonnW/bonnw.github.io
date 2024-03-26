@@ -106,7 +106,9 @@ const Sidebar = () => {
                     handleElement({ page });
                   }}
                 >
-                  <ListItemIcon>{iconSwitch(page.name)}</ListItemIcon>
+                  <ListItemIcon sx={{ color: "white" }}>
+                    {iconSwitch(page.name)}
+                  </ListItemIcon>
                   <ListItemText
                     primary={page.name}
                     sx={{ color: "white" }}

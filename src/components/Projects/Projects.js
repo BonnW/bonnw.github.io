@@ -52,7 +52,7 @@ export default function Projects({ handleClose }) {
       >
         {loaded && projectsData ? (
           projectsData.map((project) => (
-            <Grid item xs={4} sm={4} md={3} key={project._id}>
+            <Grid item xs={12} sm={6} md={4} key={project._id}>
               <ProjectCard project={project} />
             </Grid>
           ))

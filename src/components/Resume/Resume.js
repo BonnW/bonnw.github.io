@@ -7,19 +7,24 @@ import resumePDF from "../../assets/Bonn_W_Resume.pdf";
 
 export default function Resume({ handleClose }) {
   const [faded, setFaded] = useState(false);
+  const [fadeLonger, setFadeLonger] = useState(false);
 
   const triggerFadein = () => {
     setFaded(true);
   };
 
+  const triggerFadeLonger = () => {
+    setFadeLonger(true);
+  };
+
   useState(() => {
     setTimeout(triggerFadein, 300);
+    setTimeout(triggerFadeLonger, 1000);
   }, []);
 
   return (
     <Container
       sx={{
-        // width: `calc(80vw - 260px)`,
         padding: "30px",
         height: "90vh",
       }}
@@ -40,6 +45,14 @@ export default function Resume({ handleClose }) {
           <XIcon />
         </Button>
       </Box>
+
+      <Fade in={fadeLonger}>
+        <a href={resumePDF} target="_blank" rel="noreferrer">
+          <Typography variant="h5" gutterBottom>
+            "You can also click here to save a copy"
+          </Typography>
+        </a>
+      </Fade>
 
       <iframe
         id="resumePDF"

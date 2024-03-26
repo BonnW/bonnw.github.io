@@ -4,37 +4,45 @@ import XIcon from "@mui/icons-material/X";
 
 export default function AboutMe({ handleClose }) {
   const [faded, setFaded] = useState(false);
+  const [fadeLonger, setFadeLonger] = useState(false);
+  const [fadeEvenLonger, setFadeEvenLonger] = useState(false);
 
   const triggerFadein = () => {
     setFaded(true);
   };
 
+  const triggerFadeLonger = () => {
+    setFadeLonger(true);
+  };
+
+  const triggerFadeEvenLonger = () => {
+    setFadeEvenLonger(true);
+  };
+
   useState(() => {
     setTimeout(triggerFadein, 300);
+    setTimeout(triggerFadeLonger, 900);
+    setTimeout(triggerFadeEvenLonger, 2200);
   }, []);
-
-  // const handleButtonClick = () => {
-  //   handleClosePopover();
-  // };
 
   return (
     <Container
       sx={{
-        // width: `calc(100vw - 260px)`,
-        height: "620px",
         padding: "30px",
         bgcolor: "$b56146",
       }}
     >
       <Box
         sx={{
-          // border: "2px solid black",
           marginBottom: "40px",
           display: "flex",
           justifyContent: "space-between",
         }}
       >
-        <Typography variant="h3">About Me?</Typography>
+        <Fade in={faded}>
+          <Typography variant="h4">About Me?</Typography>
+        </Fade>
+
         <Button sx={{ color: "#664455" }} onClick={handleClose}>
           <XIcon />
         </Button>
@@ -44,14 +52,14 @@ export default function AboutMe({ handleClose }) {
           paddingBottom: "20px",
         }}
       >
-        <Fade in={faded}>
-          <Typography variant="h4" gutterBottom>
+        <Fade in={fadeLonger}>
+          <Typography variant="h5" gutterBottom>
             Experienced IT and Software professional with a versatile skill set
             spanning technical support, project management, and web development.
           </Typography>
         </Fade>
-        <Fade in={faded}>
-          <Typography variant="h4">
+        <Fade in={fadeEvenLonger}>
+          <Typography variant="h5">
             With a demonstrated history of delivering impactful solutions across
             various industries, I excel in optimizing systems, enhancing user
             experiences, and driving operational efficiency.
