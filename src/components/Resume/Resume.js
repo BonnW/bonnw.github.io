@@ -3,14 +3,12 @@ import React, { useState } from "react";
 import { Container, Typography, Box, Button, Fade } from "@mui/material";
 import XIcon from "@mui/icons-material/X";
 
-import resumePDF from "../../assets/Bonn_Resume_25MAR.pdf#view=FitH";
+import resumePDF from "../../assets/Bonn_W_Resume.pdf";
 
 export default function Resume({ handleClose }) {
   const [faded, setFaded] = useState(false);
 
   const triggerFadein = () => {
-    console.log(faded);
-    console.log("add fade in effect");
     setFaded(true);
   };
 
@@ -18,22 +16,16 @@ export default function Resume({ handleClose }) {
     setTimeout(triggerFadein, 300);
   }, []);
 
-  // const handleButtonClick = () => {
-  //   handleClosePopover();
-  // };
-
   return (
     <Container
       sx={{
-        width: `calc(100vw - 260px)`,
+        // width: `calc(80vw - 260px)`,
         padding: "30px",
         height: "90vh",
-        // bgcolor: "#b56147",
       }}
     >
       <Box
         sx={{
-          // border: "2px solid black",
           marginBottom: "40px",
           display: "flex",
           justifyContent: "space-between",
@@ -58,6 +50,7 @@ export default function Resume({ handleClose }) {
           height: "80%",
           border: "none",
         }}
+        // sandbox="allow-same-origin allow-scripts allow-popups allow-forms"
       />
     </Container>
   );

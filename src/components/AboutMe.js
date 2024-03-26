@@ -20,8 +20,8 @@ export default function AboutMe({ handleClose }) {
   return (
     <Container
       sx={{
-        width: `calc(100vw - 260px)`,
-        height: "380px",
+        // width: `calc(100vw - 260px)`,
+        height: "620px",
         padding: "30px",
         bgcolor: "$b56146",
       }}

@@ -11,10 +11,6 @@ export default function Projects({ handleClose }) {
   const [loaded, setLoaded] = useState(true);
   const [faded, setFaded] = useState(false);
 
-  // const handleButtonClick = () => {
-  //   handleClose();
-  // };
-
   const triggerFadein = () => {
     setFaded(true);
   };
@@ -33,7 +29,6 @@ export default function Projects({ handleClose }) {
     >
       <Box
         sx={{
-          // border: "2px solid black",
           marginBottom: "40px",
           display: "flex",
           justifyContent: "space-between",
@@ -50,14 +45,14 @@ export default function Projects({ handleClose }) {
       </Box>
       <Grid
         container
-        spacing={6}
+        spacing={4}
         direction="row"
         justifyContent="space-around"
         alignItems="center"
       >
         {loaded && projectsData ? (
           projectsData.map((project) => (
-            <Grid item xs={6} sm={2} md={3} key={project._id}>
+            <Grid item xs={4} sm={4} md={3} key={project._id}>
               <ProjectCard project={project} />
             </Grid>
           ))

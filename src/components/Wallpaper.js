@@ -21,7 +21,7 @@ const StyledBox = styled("div")(({ theme }) => ({
   backgroundSize: "cover",
   backgroundPosition: "center",
   display: "flex",
-  overflowX: "hidden",
+  // overflowX: "hidden",
   justifyContent: "center",
   alignItems: "center",
   // [theme.breakpoints.down("lg")]: {

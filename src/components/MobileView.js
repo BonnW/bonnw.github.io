@@ -2,25 +2,22 @@ import React, { useState } from "react";
 
 import {
   Container,
-  Box,
-  Typography,
-  Button,
-  Fade,
   List,
   ListItem,
   ListItemButton,
   ListItemIcon,
   ListItemText,
+  Popover,
 } from "@mui/material";
 
-import InboxIcon from "@mui/icons-material/MoveToInbox";
-import MailIcon from "@mui/icons-material/Mail";
+import FaceIcon from "@mui/icons-material/Face";
+import BuildIcon from "@mui/icons-material/Build";
+import DescriptionIcon from "@mui/icons-material/Description";
 
 import lofi from "../assets/lofiWallpaper.jpg";
 
 import Header from "./Header.js";
 import Projects from "./Projects/Projects.js";
-import Posts from "./Posts/Posts.js";
 import AboutMe from "./AboutMe.js";
 import Resume from "./Resume/Resume.js";
 
@@ -30,33 +27,47 @@ export default function MobileView() {
   const [openElement, setOpenElement] = useState(null);
 
   const handleClick = (e, text) => {
-    if (!anchorEl) {
-      setAnchorEl(e.currentTarget);
+    if (openElement) {
+      setOpenElement(null);
     }
+    setAnchorEl(e.target);
     setPopOpen(!popOpen);
     handleElement(text);
-    console.log(text);
   };
 
   const handleClose = () => {
+    setPopOpen(false);
     setAnchorEl(null);
-    setPopOpen(!popOpen);
+    setOpenElement(null);
   };
 
   const handleElement = (t) => {
-    setOpenElement(t);
+    setOpenElement(t.text);
   };
 
   const renderSwitch = (element) => {
     switch (element) {
       case "About Me":
-        return <AboutMe handleClosePopover={handleClose} />;
+        return <AboutMe handleClose={handleClose} />;
       case "Projects":
-        return <Projects handleClosePopover={handleClose} />;
+        return <Projects handleClose={handleClose} />;
       case "Resume":
-        return <Resume handleClosePopover={handleClose} />;
+        return <Resume handleClose={handleClose} />;
       default:
-        return <Box />;
+        return null;
+    }
+  };
+
+  const iconSwitch = (text) => {
+    switch (text) {
+      case "About Me":
+        return <FaceIcon />;
+      case "Projects":
+        return <BuildIcon />;
+      case "Resume":
+        return <DescriptionIcon />;
+      default:
+        return;
     }
   };
 
@@ -68,7 +79,9 @@ export default function MobileView() {
         backgroundImage: `url(${lofi})`,
         backgroundRepeat: "no-repeat",
         backgroundSize: "cover",
-        backgroundPosition: "center",
+        backgroundPosition: "cover",
+        height: "100vh",
+        width: "100vw",
       }}
     >
       <Header />
@@ -77,35 +90,47 @@ export default function MobileView() {
           <ListItem key={text} disablePadding>
             <ListItemButton
               onClick={(e) => {
-                handleClick(e);
+                handleClick(e, text);
                 handleElement({ text });
               }}
             >
-              <ListItemIcon>
-                {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-              </ListItemIcon>
+              <ListItemIcon>{iconSwitch(text)}</ListItemIcon>
               <ListItemText
                 primary={text}
-                sx={{ color: "white" }}
+                sx={{ color: "white", textAlign: "center" }}
                 primaryTypographyProps={{
-                  fontSize: 18,
+                  fontSize: 22,
                   fontWeight: "bold",
                 }}
               />
+              <ListItemIcon sx={{ justifyContent: "end" }}>
+                {iconSwitch(text)}
+              </ListItemIcon>
             </ListItemButton>
           </ListItem>
         ))}
       </List>
-      <Box
-        sx={{
-          // border: "2px solid black",
-          marginBottom: "40px",
-          display: "flex",
-          justifyContent: "space-between",
+      <Popover
+        id="simple-mobile-popover"
+        open={popOpen}
+        onClose={handleClose}
+        anchorEl={anchorEl}
+        anchorOrigin={{
+          vertical: "bottom",
+          horizontal: "center",
+        }}
+        transformOrigin={{
+          vertical: "top",
+          horizontal: "center",
+        }}
+        PaperProps={{
+          style: {
+            backgroundColor: "#f0a05a",
+          },
         }}
       >
         {renderSwitch(openElement)}
-      </Box>
+      </Popover>
     </Container>
   );
 }

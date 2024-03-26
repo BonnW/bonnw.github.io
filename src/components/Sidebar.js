@@ -10,15 +10,9 @@ import {
   Box,
   useMediaQuery,
 } from "@mui/material";
-// import Drawer from "@mui/material/Drawer";
-// import List from "@mui/material/List";
-// import ListItem from "@mui/material/ListItem";
-// import ListItemButton from "@mui/material/ListItemButton";
-// import ListItemIcon from "@mui/material/ListItemIcon";
-// import ListItemText from "@mui/material/ListItemText";
-// import Popover from "@mui/material/Popover";
-import InboxIcon from "@mui/icons-material/MoveToInbox";
-import MailIcon from "@mui/icons-material/Mail";
+import FaceIcon from "@mui/icons-material/Face";
+import BuildIcon from "@mui/icons-material/Build";
+import DescriptionIcon from "@mui/icons-material/Description";
 import { styled } from "@mui/system";
 
 import Wallpaper from "./Wallpaper.js";
@@ -33,34 +27,23 @@ import MobileView from "./MobileView.js";
 
 const sidebarWidth = 260;
 
-// const StyledBox = styled('div')(({ theme })) => ({
-//   []
-// })
-
 const Sidebar = () => {
-  // const [anchorEl, setAnchorEl] = useState(null);
   const [popOpen, setPopOpen] = useState(false);
   const [openElement, setOpenElement] = useState(null);
 
   const isMobile = useMediaQuery("(max-width:1200px");
-  // const isMobile = false;
 
-  const handleClick = (e, text) => {
-    // if (!anchorEl) {
-    //   setAnchorEl(e.currentTarget);
-    //   console.log(e.currentTarget);
-    // }
+  const handleClick = (e, key) => {
     setPopOpen(!popOpen);
-    handleElement(text);
+    setOpenElement(key);
   };
 
   const handleClose = () => {
-    // setAnchorEl(null);
     setPopOpen(!popOpen);
   };
 
-  const handleElement = (t) => {
-    setOpenElement(t.text);
+  const handleElement = (key) => {
+    console.log("this is key", key);
   };
 
   const renderSwitch = (openElement) => {
@@ -75,6 +58,25 @@ const Sidebar = () => {
         return <p>hello world</p>;
     }
   };
+
+  const iconSwitch = (text) => {
+    switch (text) {
+      case "About Me":
+        return <FaceIcon />;
+      case "Projects":
+        return <BuildIcon />;
+      case "Resume":
+        return <DescriptionIcon />;
+      default:
+        return;
+    }
+  };
+
+  const pages = [
+    { id: 1, name: "About Me" },
+    { id: 2, name: "Projects" },
+    { id: 3, name: "Resume" },
+  ];
 
   return (
     <Box>
@@ -96,22 +98,20 @@ const Sidebar = () => {
         >
           <Header />
           <List>
-            {["About Me", "Projects", "Resume"].map((text, index) => (
-              <ListItem key={text} disablePadding>
+            {pages.map((page, index) => (
+              <ListItem key={page.id} disablePadding>
                 <ListItemButton
                   onClick={(e) => {
-                    handleClick(e, text);
-                    handleElement({ text });
+                    handleClick(e, page.name);
+                    handleElement({ page });
                   }}
                 >
-                  <ListItemIcon>
-                    {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-                  </ListItemIcon>
+                  <ListItemIcon>{iconSwitch(page.name)}</ListItemIcon>
                   <ListItemText
-                    primary={text}
+                    primary={page.name}
                     sx={{ color: "white" }}
                     primaryTypographyProps={{
-                      fontSize: 18,
+                      fontSize: 16,
                       fontWeight: "bold",
                     }}
                   />
@@ -142,7 +142,6 @@ const Sidebar = () => {
               },
             }}
           >
-            {/* <h1>hello world</h1> */}
             {renderSwitch(openElement)}
           </Popover>
         </Drawer>
