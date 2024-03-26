@@ -1,0 +1,27 @@
+
+[
+  {
+    "title": "RecipeHack",
+    "details": "Enter Ingredients you have a taste for and RecipeHack will give you a few dinner ideas based on your chosen ingredients",
+    "projectTech": ["Javascript", "ReactJS", "MaterialUI"],
+    "projectLink": "https://github.com/recipe-hack/hackathon-or-something"
+  },
+  {
+    "title": "PropertyMaxx",
+    "details": "Property management system used to keep track of owned properties or rooms to manage tenants, track workorders and make charges.",
+    "projectTech": ["Javascript", "ReactJS", "MaterialUI"],
+    "projectLink": "https://github.com/BloomTech-Labs/CS8-propertymgt"
+  },
+  {
+    "title": "Shedd Inventory Management",
+    "details": "Warehouse management system utilizing barcode scanners for simplified rolling inventory and product lookup.",
+    "projectTech": ["Javascript", "ReactJS", "MaterialUI"],
+    "projectLink": "private"
+  },
+  {
+    "title": "Discord Bot - Patsy",
+    "details": "Patsy is designed to work as a greeter to your discord server based on the sidekick from monty python.",
+    "projectTech": ["Javascript", "ReactJS", "MaterialUI"],
+    "projectLink": "private"
+  }
+]
