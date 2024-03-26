@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Container, Typography, Box, Button, Fade } from "@mui/material";
 import XIcon from "@mui/icons-material/X";
 
-export default function AboutMe({ handleClosePopover }) {
+export default function AboutMe({ handleClose }) {
   const [faded, setFaded] = useState(false);
 
   const triggerFadein = () => {
@@ -13,9 +13,9 @@ export default function AboutMe({ handleClosePopover }) {
     setTimeout(triggerFadein, 300);
   }, []);
 
-  const handleButtonClick = () => {
-    handleClosePopover();
-  };
+  // const handleButtonClick = () => {
+  //   handleClosePopover();
+  // };
 
   return (
     <Container
@@ -35,7 +35,7 @@ export default function AboutMe({ handleClosePopover }) {
         }}
       >
         <Typography variant="h3">About Me?</Typography>
-        <Button sx={{ color: "#664455" }} onClick={handleButtonClick}>
+        <Button sx={{ color: "#664455" }} onClick={handleClose}>
           <XIcon />
         </Button>
       </Box>

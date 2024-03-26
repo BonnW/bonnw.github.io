@@ -4,14 +4,14 @@ import { styled } from "@mui/system";
 
 import lofi from "../assets/lofiWallpaper.jpg";
 
-// NEXT STEPS
-// STREAM MINI YOUTUBE PLAYER IN BACKGROUND.
-// VISITORS ON ARRIVAL, VIDEO PAUSED. CAN PLAY AT WILL. AND/AOR MINIMIZE
-
 const sidebarWidth = 260;
 
-const StyledBox = styled("div")({
+const StyledBox = styled("div")(({ theme }) => ({
+  [theme.breakpoints.down("lg")]: {
+    display: "none",
+  },
   flexGrow: 1,
+  display: "none",
   backgroundImage: `url(${lofi})`,
   backgroundColor: "black",
   height: "100vh",
@@ -24,7 +24,10 @@ const StyledBox = styled("div")({
   overflowX: "hidden",
   justifyContent: "center",
   alignItems: "center",
-});
+  // [theme.breakpoints.down("lg")]: {
+  //   backgroundImage: "",
+  // },
+}));
 
 const YouTubePlayer = ({ videoId }) => {
   let player;

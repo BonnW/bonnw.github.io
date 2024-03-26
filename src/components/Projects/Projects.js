@@ -7,13 +7,13 @@ import projectsData from "../../data/projects.json";
 import { Typography, Button, Fade } from "@mui/material";
 import XIcon from "@mui/icons-material/X";
 
-export default function Projects({ handleClosePopover }) {
+export default function Projects({ handleClose }) {
   const [loaded, setLoaded] = useState(true);
   const [faded, setFaded] = useState(false);
 
-  const handleButtonClick = () => {
-    handleClosePopover();
-  };
+  // const handleButtonClick = () => {
+  //   handleClose();
+  // };
 
   const triggerFadein = () => {
     setFaded(true);
@@ -44,7 +44,7 @@ export default function Projects({ handleClosePopover }) {
             "Here are a few of the projects I've worked on"
           </Typography>
         </Fade>
-        <Button sx={{ color: "#664455" }} onClick={handleButtonClick}>
+        <Button sx={{ color: "#664455" }} onClick={handleClose}>
           <XIcon />
         </Button>
       </Box>

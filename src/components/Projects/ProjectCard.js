@@ -10,7 +10,6 @@ import Link from "@mui/material/Link";
 import pic from "../../assets/GitHubLogo.png";
 
 export default function ProjectCard(props) {
-  console.log(props);
   let hyperLinkURL = props.project.projectLink;
   return (
     <Card

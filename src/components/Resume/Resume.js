@@ -5,7 +5,7 @@ import XIcon from "@mui/icons-material/X";
 
 import resumePDF from "../../assets/Bonn_Resume_25MAR.pdf#view=FitH";
 
-export default function Resume({ handleClosePopover }) {
+export default function Resume({ handleClose }) {
   const [faded, setFaded] = useState(false);
 
   const triggerFadein = () => {
@@ -18,9 +18,9 @@ export default function Resume({ handleClosePopover }) {
     setTimeout(triggerFadein, 300);
   }, []);
 
-  const handleButtonClick = () => {
-    handleClosePopover();
-  };
+  // const handleButtonClick = () => {
+  //   handleClosePopover();
+  // };
 
   return (
     <Container
@@ -44,7 +44,7 @@ export default function Resume({ handleClosePopover }) {
             "Sure! Here's a copy of my Resume."
           </Typography>
         </Fade>
-        <Button sx={{ color: "#664455" }} onClick={handleButtonClick}>
+        <Button sx={{ color: "#664455" }} onClick={handleClose}>
           <XIcon />
         </Button>
       </Box>
