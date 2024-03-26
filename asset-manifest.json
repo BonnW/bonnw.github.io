@@ -1,0 +1,19 @@
+{
+  "files": {
+    "main.css": "/static/css/main.ec03177b.css",
+    "main.js": "/static/js/main.6400b7f9.js",
+    "static/js/453.6c06b83a.chunk.js": "/static/js/453.6c06b83a.chunk.js",
+    "static/media/lofiWallpaper.jpg": "/static/media/lofiWallpaper.43a07a06724ac2d6d1c4.jpg",
+    "static/media/SampleProfilePic.jpg": "/static/media/SampleProfilePic.7297b682cce980797736.jpg",
+    "static/media/Bonn_Resume_25MAR.pdf#view=FitH": "/static/media/Bonn_Resume_25MAR.e3a1651b2da5535537e8.pdf",
+    "static/media/GitHubLogo.png": "/static/media/GitHubLogo.7c8f7736007664c4b0ba.png",
+    "index.html": "/index.html",
+    "main.ec03177b.css.map": "/static/css/main.ec03177b.css.map",
+    "main.6400b7f9.js.map": "/static/js/main.6400b7f9.js.map",
+    "453.6c06b83a.chunk.js.map": "/static/js/453.6c06b83a.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.ec03177b.css",
+    "static/js/main.6400b7f9.js"
+  ]
+}
